@@ -1,8 +1,10 @@
-{
-  "routes": [
-    {
-      "pattern": "kasti-skl.pl",
-      "zone_id": "4b248d29ac5c186e32b0e5b3bc148874"
-    }
-  ]
-}
+name = "static-site"
+compatibility_date = "2025-05-26"
+
+[build]
+command = ""
+upload.format = "service-worker"
+upload.main = "worker.js"
+
+[site]
+bucket = "./public"
