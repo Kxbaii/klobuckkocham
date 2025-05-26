@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kłobuck</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exile&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Exile", sans-serif;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+    }
+
+    #welcome {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      gap: 30px;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    #welcome.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #welcome h2 {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: 40px;
+    }
+
+    .choice-buttons button {
+      font-size: 28px;
+      padding: 15px 30px;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .choice-buttons button:hover {
+      background-color: #ddd;
+    }
+
+    #main {
+      opacity: 0;
+      transition: opacity 1s ease;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #main.show {
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 150px;
+      width: 100vw;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ekran powitalny -->
+  <div id="welcome">
+    <h2>Czy lubisz Kłobuck?</h2>
+    <div class="choice-buttons">
+      <button onclick="enterSite()">Tak</button>
+      <button onclick="enterSite()">Nie</button>
+    </div>
+  </div>
+
+  <!-- Główna zawartość strony -->
+  <div id="main">
+    <h1>Jebać kłobuck</h1>
+    <img src="Bez tytułu.png" alt="obrazek">
+    <audio id="bg-audio" loop>
+      <source src="./zydzibe.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    function enterSite() {
+      const welcome = document.getElementById('welcome');
+      const main = document.getElementById('main');
+
+      // Znikanie ekranu powitalnego
+      welcome.classList.add('fade-out');
+
+      // Pokazanie głównej zawartości po animacji
+      setTimeout(() => {
+        welcome.style.display = 'none';
+        main.classList.add('show');
+        document.getElementById('bg-audio').play().catch((e) => {
+          console.log("Autoplay blocked: ", e);
+        });
+      }, 1000); // musi pasować do transition: 1s
+    }
+  </script>
+
+</body>
+</html>
