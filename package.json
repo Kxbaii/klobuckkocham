@@ -1,0 +1,12 @@
+{
+  "name": "static-worker-site",
+  "version": "1.0.0",
+  "description": "Static site deployed using Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "devDependencies": {
+    "wrangler": "^3.51.0"
+  }
+}
