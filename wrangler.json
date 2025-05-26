@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "pattern": "kasti-skl.pl",
+      "zone_id": "4b248d29ac5c186e32b0e5b3bc148874"
+    }
+  ]
+}
